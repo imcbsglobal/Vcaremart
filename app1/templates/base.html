@@ -1,0 +1,420 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}My Website{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* Fix overflow issues */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container-fluid {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background-color: #495057;
+      color: white !important;
+      border-radius: 5px;
+    }
+
+    /* Custom hamburger button */
+    .custom-hamburger {
+      border: none;
+      background: transparent;
+      padding: 4px 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      transition: all 0.3s ease;
+    }
+
+    .custom-hamburger:hover {
+      transform: scale(1.05);
+    }
+
+    .custom-hamburger:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(73, 80, 87, 0.25);
+    }
+
+    .hamburger-line {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 2px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+      transform-origin: center;
+    }
+
+    /* Animation for when menu is open */
+    .custom-hamburger.active .hamburger-line:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .custom-hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .custom-hamburger.active .hamburger-line:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Close button styling */
+    .btn-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      z-index: 1051;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-close:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: scale(1.1);
+    }
+
+    /* Mobile menu improvements */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-top: 10px;
+        padding: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 15px;
+        right: 15px;
+        z-index: 1000;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 15px 20px;
+        margin: 5px 0;
+        border-radius: 8px;
+        background-color: rgba(248, 249, 250, 0.8);
+      }
+
+      .navbar-nav .nav-link:hover {
+        background-color: #495057;
+        color: white !important;
+        transform: translateX(5px);
+      }
+
+      .contact-desktop {
+        display: none;
+      }
+    }
+
+    .contact-desktop {
+      text-align: right;
+      font-size: 14px;
+    }
+
+    .contact-desktop i {
+      margin-right: 5px;
+    }
+
+    /* Footer improvements */
+    .footer * {
+      font-size: 14px;
+    }
+
+    .footer h5, .footer h6 {
+      font-size: 16px;
+    }
+
+    .footer {
+      margin-top: auto;
+    }
+
+    /* Responsive text and spacing */
+    @media (max-width: 576px) {
+      .navbar-brand {
+        font-size: 20px;
+      }
+
+      .footer .col-md-2,
+      .footer .col-md-1,
+      .footer .col-md-3 {
+        margin-bottom: 2rem;
+      }
+
+      .footer .container {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+
+    /* Animation for mobile menu */
+    .navbar-collapse.collapsing {
+      transition: height 0.4s ease;
+    }
+
+    .navbar-collapse.show {
+      animation: slideIn 0.4s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Ensure menu is hidden by default on mobile */
+    @media (max-width: 991.98px) {
+      .navbar-collapse:not(.show) {
+        display: none !important;
+      }
+    }
+    .imglogo{
+      width: 120px;
+      height: 90px;
+      margin-left: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand ms-3" href="#">LOGO</a>
+      -->
+
+      <img src="{% static 'images/logo.jpg' %}" class="imglogo"/>
+    <!-- Custom Hamburger Button -->
+    <button class="custom-hamburger me-3 d-lg-none" type="button" id="hamburgerBtn" aria-label="Toggle navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse position-relative" id="mainNavbar">
+      
+      <!-- Professional Close button -->
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3 d-lg-none" aria-label="Close" id="closeBtn"></button>
+
+      <!-- Menu links -->
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center mt-4 mt-lg-0" style="font-size: larger;gap: 20px;">
+        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><b>HOME</b></a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}"><b>ABOUT</b></a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'store' %}"><b>STORE</b></a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'branch' %}"><b>BRANCH</b></a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}"><b>CONTACT</b></a></li>
+      </ul>
+
+      <!-- Contact info desktop only -->
+      <div class="contact-desktop me-4">
+        <div><i class="bi bi-telephone-fill"></i><b> +91 9876543210</b></div>
+        <div><i class="bi bi-envelope-fill"></i> <b>vcarehypermarket@gmail.com</b></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content Block -->
+{% block content %}
+{% endblock %}
+
+<!-- Footer -->
+<section class="footer text-white py-5" style="background-color: rgb(248, 163, 5);">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo + Customer Care -->
+      <div class="col-md-2 mb-4 small">
+        <h6 class="fw-bold">Logo</h6>
+        <p>Have questions? Reach out to us for support and ensure your satisfaction.</p>
+        <p class="fw-bold">Customer Care Number</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 9876543210</p>
+        <div class="d-flex gap-3 mt-2">
+          <a href="#" class="text-white fs-6"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-6"><i class="bi bi-envelope-fill"></i></a>
+          <a href="#" class="text-white fs-6"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Explore Links -->
+      <div class="col-md-1 mb-4 small">
+        <h6 class="fw-bold">Explore</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-white text-decoration-none">About</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Store</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Branch</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Branches -->
+      <div class="col-md-3 mb-4 small">
+        <h6 class="fw-bold">V Care MART<br>Kombodinjammakkal</h6>
+        <p>V Care Mart Hypermarket, <br> Kombodinjammakkal,Wayanad, <br>Kerala Pin - 123456</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 9876543210</p>
+        <p><i class="bi bi-envelope-fill"></i> vcarehypermarket@gmail.com</p>
+        <p>Opening Hour - 8am to 10pm</p>
+      </div>
+
+      <div class="col-md-3 mb-4 small">
+        <h6 class="fw-bold">V Care MART<br>Annamanada</h6>
+        <p>V Care Mart Hypermarket ,<br>Annamanada, Wayanad,<br> Kerala Pin - 123456</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 9876543210</p>
+        <p><i class="bi bi-envelope-fill"></i> vcarehypermarket@gmail.com</p>
+        <p>Opening Hour - 8am to 10pm</p>
+      </div>
+
+      <div class="col-md-3 mb-4 small">
+        <h6 class="fw-bold">V Care MART<br>Mala</h6>
+        <p>V Care Mart Hypermarket,<br>Mala, Wayanad,<br> Kerala Pin - 123456</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 9876543210</p>
+        <p><i class="bi bi-envelope-fill"></i> vcarehypermarket@gmail.com</p>
+        <p>Opening Hour - 8am to 10pm</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .footer p,
+  .footer a,
+  .footer li {
+    font-size: 1rem;
+  }
+
+  .footer h6 {
+    font-size: 1.25rem;
+  }
+</style>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Enhanced Navbar Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const navbarCollapse = document.getElementById('mainNavbar');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+    // Toggle menu function
+    function toggleMenu() {
+      const isOpen = navbarCollapse.classList.contains('show');
+      
+      if (isOpen) {
+        // Close menu
+        navbarCollapse.classList.remove('show');
+        hamburgerBtn.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      } else {
+        // Open menu
+        navbarCollapse.classList.add('show');
+        hamburgerBtn.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+    }
+
+    // Hamburger button click
+    hamburgerBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close button click
+    closeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Auto-close menu when clicking on nav links (mobile)
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth < 992) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Close menu when clicking outside (mobile)
+    document.addEventListener('click', function(event) {
+      const navbar = document.querySelector('.navbar');
+      const isClickInside = navbar.contains(event.target);
+      
+      if (!isClickInside && navbarCollapse.classList.contains('show') && window.innerWidth < 992) {
+        toggleMenu();
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 992) {
+        // Desktop view - ensure menu is hidden and hamburger is reset
+        navbarCollapse.classList.remove('show');
+        hamburgerBtn.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Prevent menu from showing on page load
+    navbarCollapse.classList.remove('show');
+    hamburgerBtn.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
