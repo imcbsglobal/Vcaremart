@@ -220,7 +220,7 @@
     .imglogo{
       width: 120px;
       height: 90px;
-      margin-left: 30px;
+      /* margin-left: 20px; */
     }
   </style>
 </head>
@@ -257,28 +257,53 @@
 
       <!-- Contact info desktop only -->
       <div class="contact-desktop me-4">
-        <div><i class="bi bi-telephone-fill"></i><b> +91 9876543210</b></div>
-        <div><i class="bi bi-envelope-fill"></i> <b>vcarehypermarket@gmail.com</b></div>
+        <div><i class="bi bi-telephone-fill"></i><b>+91 8086800686</b></div>
+        <div><i class="bi bi-envelope-fill"></i> <b>kmbd.vcaremart@gmail.com</b></div>
       </div>
     </div>
   </div>
 </nav>
 
+<style>
+     .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .whatsapp-btn img {
+      width: 30px;
+      height: 30px;
+    }
+</style>
+
+<a href="https://wa.me/918086800686" class="whatsapp-btn" target="_blank">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+</a>
 <!-- Main Content Block -->
 {% block content %}
 {% endblock %}
 
 <!-- Footer -->
-<section class="footer text-white py-5" style="background-color: rgb(248, 163, 5);">
+<section class="footer text-white py-5" style="background-color: orange;">
   <div class="container">
     <div class="row">
 
       <!-- Logo + Customer Care -->
       <div class="col-md-2 mb-4 small">
-        <h6 class="fw-bold">Logo</h6>
-        <p>Have questions? Reach out to us for support and ensure your satisfaction.</p>
+        <img src="{% static 'images/logo.jpg' %}" class="imglogo"/><br><br>
+        
         <p class="fw-bold">Customer Care Number</p>
-        <p><i class="bi bi-telephone-fill"></i> +91 9876543210</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 8086800686</p>
         <div class="d-flex gap-3 mt-2">
           <a href="#" class="text-white fs-6"><i class="bi bi-facebook"></i></a>
           <a href="#" class="text-white fs-6"><i class="bi bi-envelope-fill"></i></a>
@@ -287,41 +312,64 @@
       </div>
 
       <!-- Explore Links -->
-      <div class="col-md-1 mb-4 small">
+      <div class="col-md-1 mb-4 small p-3 pr-3">
         <h6 class="fw-bold">Explore</h6>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-white text-decoration-none">About</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Store</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Branch</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="{% url 'index' %}" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="{% url 'about' %}" class="text-white text-decoration-none">About</a></li>
+          <li><a href="{% url 'store' %}" class="text-white text-decoration-none">Store</a></li>
+          <li><a href="{% url 'branch' %}" class="text-white text-decoration-none">Branch</a></li>
+          <li><a href="{% url 'contact' %}" class="text-white text-decoration-none">Contact</a></li>
         </ul>
       </div>
 
       <!-- Branches -->
-      <div class="col-md-3 mb-4 small">
-        <h6 class="fw-bold">V Care MART<br>Kombodinjammakkal</h6>
-        <p>V Care Mart Hypermarket, <br> Kombodinjammakkal,Wayanad, <br>Kerala Pin - 123456</p>
-        <p><i class="bi bi-telephone-fill"></i> +91 9876543210</p>
-        <p><i class="bi bi-envelope-fill"></i> vcarehypermarket@gmail.com</p>
-        <p>Opening Hour - 8am to 10pm</p>
-      </div>
 
-      <div class="col-md-3 mb-4 small">
-        <h6 class="fw-bold">V Care MART<br>Annamanada</h6>
-        <p>V Care Mart Hypermarket ,<br>Annamanada, Wayanad,<br> Kerala Pin - 123456</p>
-        <p><i class="bi bi-telephone-fill"></i> +91 9876543210</p>
-        <p><i class="bi bi-envelope-fill"></i> vcarehypermarket@gmail.com</p>
-        <p>Opening Hour - 8am to 10pm</p>
-      </div>
+<style>
+  .branch-card {
+    padding: 10px;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    border-radius: 8px;
+  }
 
-      <div class="col-md-3 mb-4 small">
-        <h6 class="fw-bold">V Care MART<br>Mala</h6>
-        <p>V Care Mart Hypermarket,<br>Mala, Wayanad,<br> Kerala Pin - 123456</p>
-        <p><i class="bi bi-telephone-fill"></i> +91 9876543210</p>
-        <p><i class="bi bi-envelope-fill"></i> vcarehypermarket@gmail.com</p>
-        <p>Opening Hour - 8am to 10pm</p>
-      </div>
+  .open-hours {
+    font-weight: 600;
+    color:white;
+    background-color: #ffc107;
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+
+  .branch-card i {
+    margin-right: 5px;
+  }
+</style>
+<div class="col-md-3 mb-4 small branch-card">
+  <h6 class="fw-bold mb-3">VCare MART<br>Kombodinjamakkal</h6>
+  <p class="mb-2">VCare Mart,<br>Kombodinjamakkal Branch</p>
+  <p class="mb-2"><i class="bi bi-telephone-fill"></i> +91 8086800686</p>
+  <p class="mb-2"><i class="bi bi-envelope-fill"></i> kmbd.vcaremart@gmail.com</p>
+ 
+</div>
+
+
+      <div class="col-md-3 mb-4 small branch-card">
+  <h6 class="fw-bold mb-3">VCare MART<br>Annamanada</h6>
+  <p class="mb-2">VCare Mart,<br>Annamanada branch</p>
+  <p class="mb-2"><i class="bi bi-telephone-fill"></i> +91 8086800153</p>
+  <p class="mb-2"><i class="bi bi-envelope-fill"></i> kmbd.vcaremart@gmail.com</p>
+  
+</div>
+
+      <div class="col-md-3 mb-4 small branch-card">
+  <h6 class="fw-bold mb-3">VCare MART<br>Mala</h6>
+  <p class="mb-2">VCare Mart,<br>Mala Branch</p>
+  <p class="mb-2"><i class="bi bi-telephone-fill"></i> +91 8086800196</p>
+  <p class="mb-2"><i class="bi bi-envelope-fill"></i> kmbd.vcaremart@gmail.com</p>
+  
+</div>
 
     </div>
   </div>

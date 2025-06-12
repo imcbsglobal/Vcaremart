@@ -22,6 +22,26 @@
     text-align: center;
   }
 
+  .store-section h2 {
+  font-size: 2.5em;
+  color: black;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block; /* Important to center underline relative to text */
+}
+
+.store-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* space below the text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #e67e22;
+}
+
+
   .store-section .container {
     max-width: 900px;
     margin: 0 auto;
@@ -34,14 +54,14 @@
     position: relative;
   }
 
-  .store-section h2::after {
+  .about-section h2:after {
     content: '';
-    width: 80px;
-    height: 4px;
-    background: black;
-    display: block;
-    margin: 10px auto 0;
-    border-radius: 2px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #e67e22;
   }
 
   .store-section p {
@@ -118,23 +138,44 @@
   <!-- Vegetables -->
   <div class="product-card">
     <img src="{% static 'images/vegitable.jpeg' %}" alt="Vegetables">
-    <div class="product-label">VEGETABLES</div>
+    <div class="product-label">VEGETABLES & FRUITS</div>
   </div>
 
   <!-- Fruits -->
   <div class="product-card">
-    <img src="{% static 'images/vegitable.jpeg' %}" alt="Fruits">
-    <div class="product-label">FRUITS</div>
+    <img src="{% static 'images/grocery.jpg' %}" alt="Fruits">
+    <div class="product-label">GROCERY & NON GROCERY </div>
   </div>
   <div class="product-card">
-    <img src="{% static 'images/vegitable.jpeg' %}" alt="Vegetables">
-    <div class="product-label">BAKERY ITEMS</div>
+    <img src="{% static 'images/Backery.jpg' %}" alt="Vegetables">
+    <div class="product-label">BAKERY & PASTRY</div>
   </div>
   <div class="product-card">
-    <img src="{% static 'images/vegitable.jpeg' %}" alt="Vegetables">
-    <div class="product-label">DAIRY PRODUCTS</div>
+    <img src="{% static 'images/drink.jpg' %}" alt="Vegetables">
+    <div class="product-label">BEVERAGES & DRINKS</div>
+  </div><br>
+  <div class="product-card">
+    <img src="{% static 'images/personal.jpg' %}" alt="Vegetables">
+    <div class="product-label">PERSONAL CARE</div>
   </div>
-  
+  <div class="product-card">
+    <img src="{% static 'images/baby care.jpg' %}" alt="Vegetables">
+    <div class="product-label">BABY CARE</div>
+  </div>
+  <div class="product-card">
+    <img src="{% static 'images/homecare.jpg' %}" alt="Vegetables">
+    <div class="product-label">HOME CARE</div>
+
+  </div>
+
+  <div class="product-card">
+    <img src="{% static 'images/gift.jpg' %}" alt="Vegetables">
+    <div class="product-label">GIFT,STATIONARY & FANCY</div>
+  </div>
+ <div class="product-card">
+    <img src="{% static 'images/toys.jpg' %}" alt="Vegetables">
+    <div class="product-label">SPORTS & TOYS</div>
+  </div>
 </section>
 
 

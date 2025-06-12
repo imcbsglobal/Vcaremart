@@ -81,6 +81,7 @@
   }
 
   .about-section h2 {
+    text-align: center;
     font-weight: 700;
     color: #2c3e50;
     margin-bottom: 1.5rem;
@@ -92,7 +93,7 @@
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
     width: 60px;
     height: 3px;
     background: #e67e22;
@@ -127,11 +128,7 @@
       padding: 3rem 0;
       text-align: center;
     }
-    
-    .about-section h2:after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
+
     
     .about-section img {
       margin-top: 2rem;
@@ -145,7 +142,7 @@
     }
     
     .about-section h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     
     .about-section p {
@@ -583,11 +580,11 @@
                     <div class="swiper-slide">
                         <div class="product-card">
                             <div class="image-container">
-                                <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=300&fit=crop&crop=center" alt="Premium Meat">
+                               <img src="{% static 'images/personal.jpg' %}" alt="Vegetables">
                             </div>
                             <div class="card-content">
-                                <h5 >PREMIUM MEAT</h5>
-                                <p>High-quality, ethically sourced meat products with superior taste and freshness.</p>
+                                <h5 >PERSONAL CARE</h5>
+                                 <p>Discover our wide range of personal care products designed to keep you feeling fresh and confident every day.</p>
                             </div>
                         </div>
                     </div>
@@ -606,6 +603,27 @@
 
 
 <style>
+
+
+.store-section h2 {
+  font-size: 2.5em;
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block; /* Important to center underline relative to text */
+}
+
+.store-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* space below the text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #e67e22;
+}
+
         .store-section {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
                         url("https://th.bing.com/th/id/OSK.HEROIumuaH_5An0-chmOqVihvA7DLOWNuCTvuxACn1zwpNA?r=0&rs=1&pid=ImgDetMain");
@@ -642,7 +660,7 @@
 
         .store-name {
             font-weight: bold;
-            color: #fce305;
+            color: orange;
             font-size: 1.2rem;
             margin-bottom: 1rem;
         }
@@ -730,13 +748,13 @@
 
 <section class="store-section py-5 text-white">
         <div class="container-fluid text-center">
-            <h2 class="section-title">EXPLORE OUR STORES</h2>
+            <h2 class="section-title">Explore Our Stores</h2>
             <div class="row justify-content-center">
                 <!-- Store 1 -->
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4 ">
                     <div class="store-card p-3 h-100" style="width: ;">
                         <img src="{% static 'images/ourstore.jpg' %}" alt="KOMBODINJAMMAKKAL Store">
-                        <h5 class="store-name">KOMBODINJAMMAKKAL</h5>
+                        <h5 class="store-name">KOMBODINJAMAKKAL</h5>
                         <p>Our largest flagship store, offering a best seamless shopping experience.</p>
                     </div>
                 </div>
@@ -767,6 +785,26 @@
 
 
 <style>
+
+.contact-section h1 {
+  font-size: 2.5em;
+  color: black;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block; /* Important to center underline relative to text */
+}
+
+.contact-section h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* space below the text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #e67e22;
+}
+
 .contact-section {
   background-color: #f9f9f9;
 }
@@ -783,6 +821,8 @@
 
 .contact-section button {
   border-radius: 10px;
+  border-color: orange;
+  background-color: orange;
   padding: 10px 25px;
 }
 </style>
