@@ -151,22 +151,78 @@
   }
 </style>
 
+<style>
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-caption-custom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+
+.carousel-caption-custom h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.carousel-caption-custom p {
+  font-size: 1.2rem;
+}
+
+.carousel-caption-custom a.btn {
+  margin-top: 15px;
+}
+</style>
+
 <!-- Hero Carousel Banner -->
-<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-<div class="carousel-item active position-relative">
-  <img src="{% static 'images/baner1.jpg' %}" class="d-block w-100" alt="Supermarket Banner 1">
-  <div class="carousel-overlay"></div>
-</div>
-<div class="carousel-item position-relative">
-  <img src="{% static 'images/baner2.jpg' %}" class="d-block w-100" alt="Supermarket Banner 2">
-  <div class="carousel-overlay"></div>
-</div>
-<div class="carousel-item position-relative">
-  <img src="{% static 'images/baner3.jpg' %}" class="d-block w-100" alt="Supermarket Banner 3">
-  <div class="carousel-overlay"></div>
-</div>
+<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-inner">
 
+    <!-- Slide 1 -->
+    <div class="carousel-item active position-relative">
+      <img src="{% static 'images/baner1.jpg' %}" class="d-block w-100" alt="Supermarket Banner 1">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption-custom">
+        <h1>Welcome to Vcare Mart</h1>
+        <p>Fresh products. Great prices. Every day.</p>
+        
+      </div>
+    </div>
 
+    <!-- Slide 2 -->
+    <div class="carousel-item position-relative">
+      <img src="{% static 'images/baner2.jpg' %}" class="d-block w-100" alt="Supermarket Banner 2">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption-custom">
+        <h1>Exclusive Offers</h1>
+        <p>Get the best deals on groceries and essentials.</p>
+        
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item position-relative">
+      <img src="{% static 'images/baner3.jpg' %}" class="d-block w-100" alt="Supermarket Banner 3">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption-custom">
+        <h1>Fresh & Organic</h1>
+        <p>Handpicked daily to serve you better.</p>
+        <a href="#" class="btn btn-warning">Learn More</a>
+      </div>
+    </div>
+
+  </div>
 
   <!-- Carousel Controls -->
   <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
@@ -178,6 +234,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
 
 <!-- About Section -->
 <section class="about-section">
@@ -515,7 +572,7 @@
                     <div class="swiper-slide">
                         <div class="product-card">
                             <div class="image-container">
-                                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&h=300&fit=crop&crop=center" alt="Fresh Vegetables">
+                                <img src="{% static 'images/vegitable.jpeg' %}" alt="Vegetables">
                             </div>
                             <div class="card-content">
                                 <h5 >FRESH VEGETABLES</h5>
@@ -531,7 +588,7 @@
                                 <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=300&h=300&fit=crop&crop=center" alt="Seasonal Fruits">
                             </div>
                             <div class="card-content">
-                                <h5 >SEASONAL FRUITS</h5>
+                                <h5 >FRESH FRUITS</h5>
                                 <p>Sweet, ripe and carefully selected seasonal fruits from trusted local orchards.</p>
                             </div>
                         </div>
@@ -541,11 +598,11 @@
                     <div class="swiper-slide">
                         <div class="product-card">
                             <div class="image-container">
-                                <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=300&h=300&fit=crop&crop=center" alt="Dairy Products">
+                                 <img src="{% static 'images/grocery.jpg' %}" alt="Fruits">
                             </div>
                             <div class="card-content">
-                                <h5 >DAIRY PRODUCTS</h5>
-                                <p>Fresh milk, artisanal cheese, and creamy yogurt from local sustainable farms.</p>
+                                <h5 >GROCERY &  NON GROCERY</h5>
+                                <p>From farm-fresh vegetables and fruits to essential grains, pulses, spices, and dairy – get all your daily grocery needs. </p>
                             </div>
                         </div>
                     </div>
@@ -554,7 +611,7 @@
                     <div class="swiper-slide">
                         <div class="product-card">
                             <div class="image-container">
-                                <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=300&fit=crop&crop=center" alt="Bakery Items">
+                                <img src="{% static 'images/backery1.jpg' %}" alt="Vegetables">
                             </div>
                             <div class="card-content">
                                 <h5 >BAKERY ITEMS</h5>
@@ -567,10 +624,10 @@
                     <div class="swiper-slide">
                         <div class="product-card">
                             <div class="image-container">
-                                <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&h=300&fit=crop&crop=center" alt="Beverages">
+                               <img src="{% static 'images/drink1.jpg' %}" alt="Vegetables">
                             </div>
                             <div class="card-content">
-                                <h5>BEVERAGES</h5>
+                                <h5>BEVERAGES & DRINKS</h5>
                                 <p>Premium juices, organic teas, specialty coffees and cold-pressed healthy drinks.</p>
                             </div>
                         </div>
