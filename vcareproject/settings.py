@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-t98#4-^5ls4dpj4k&fa8#ie3z4a7%e_bs9c()qkf9$oveyc$0-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vcaremart.in','www.vcaremart.in']
 
 
 # Application definition
