@@ -162,11 +162,11 @@
 
     /* Footer improvements */
     .footer * {
-      font-size: 14px;
+      font-size: 18px;
     }
 
     .footer h5, .footer h6 {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .footer {
@@ -319,7 +319,9 @@
           <li><a href="{% url 'about' %}" class="text-white text-decoration-none">About</a></li>
           <li><a href="{% url 'store' %}" class="text-white text-decoration-none">Store</a></li>
           <li><a href="{% url 'branch' %}" class="text-white text-decoration-none">Branch</a></li>
-          <li><a href="{% url 'contact' %}" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="{% url 'contact' %}" class="text-white text-decoration-none">Contact</a></li><br>
+          <span style="white-space: nowrap;"> <li><a href="{% url 'privacy' %}" class="text-white text-decoration-none"> Privacy Policy</a></li>
+          <li><a href="{% url 'privacy' %}" class="text-white text-decoration-none">Terms & Conditions</a></li></span>
         </ul>
       </div>
 
@@ -375,8 +377,7 @@
   </div>
   <div class="privacyclass">
   <ul class="list-unstyled">
-  <li><a href="{% url 'privacy' %}" class="text-white text-decoration-none">Privacy Policy</a></li>
-  <li><a href="{% url 'privacy' %}" class="text-white text-decoration-none">Terms & Conditions</a></li>
+ 
 </ul>
 </div>
 </section>
@@ -389,14 +390,12 @@
   }
 
   .footer h6 {
-    font-size: 1.25rem;
+    font-size: 2%;
   }
   .privacyclass {
-  padding-right: 10px;
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+    text-align: left;
+    padding-left: 300px;
+  
 }
 
 </style>
